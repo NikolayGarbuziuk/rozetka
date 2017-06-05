@@ -2,7 +2,9 @@ package uaComRozetkaTests.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,6 +22,17 @@ public class ResultPage extends BasePage{
         driver.findElement(By.xpath(".//ul//a[.='"+ itemName + "']")).click();
         return new ResultPage(driver);
 
-        
     }
+
+    public List listOfTopSalesProducts(){
+
+             List< WebElement> topList = driver.findElements(By.xpath(".//div[@name='goods_list']//i[@class='g-tag g-tag-icon-middle-popularity sprite']/../../.."));
+             for (WebElement l: topList) {
+                 System.out.println( l.getLocation());
+
+             }
+        return topList;
+
+    }
+
 }
