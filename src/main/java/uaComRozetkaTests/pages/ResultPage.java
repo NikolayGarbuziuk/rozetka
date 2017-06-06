@@ -3,6 +3,7 @@ package uaComRozetkaTests.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utility.Log;
 
 import java.util.HashMap;
 import java.util.List;
@@ -75,11 +76,11 @@ public class ResultPage extends BasePage{
         List<WebElement> list_price;
         Map<String, String> map = new HashMap<String, String>();
         try {
-            Thread.sleep(2000);//there is the bug in Chrome from version 40+ in refresh page and link objects
+            Thread.sleep(2000);
             list_name = driver.findElements(
                     By.xpath(".//div[@name='goods_list']//i[@class='g-tag g-tag-icon-middle-popularity sprite']/../../../div[@class='g-i-tile-i-title clearfix']/a"));
             list_price = driver.findElements(
-                    By.xpath(".//div[@name='goods_list']//i[@class='g-tag g-tag-icon-middle-popularity sprite']/../../../div[@class='inline']/div[@class='inline']/div[@name='price']/div[@class='g-price-uah']"));
+                    By.xpath(".//div[@name='goods_list']//i[@class='g-tag g-tag-icon-middle-popularity sprite']/../../..//div[@class='g-price-uah']"));
             // Log.info("There are " + list_desc.size() + " topsells products, and " + list_price.size() + " prices on the " + driver.getCurrentUrl());
 
             for (int i = 0; i < list_name.size(); i++) {
@@ -87,6 +88,7 @@ public class ResultPage extends BasePage{
             }
             for (Map.Entry entry : map.entrySet()) {
                 System.out.println(entry.getKey() + ", " + entry.getValue());
+                Log.info(entry.getKey() + ", " + entry.getValue());
             }
             return map;
 
