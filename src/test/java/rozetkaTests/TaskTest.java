@@ -2,6 +2,7 @@ package rozetkaTests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.Verifier;
 import uaComRozetkaTests.pages.HomePage;
 import uaComRozetkaTests.pages.ResultPage;
 import utility.Log;
@@ -47,7 +48,8 @@ public class TaskTest extends BaseCase {
         int page3TopSalesCount = page3.countOfTopSalesPerPage();
        // System.out.println("Page3: " + page3TopSalesCount); for debug
 
-        Assert.assertFalse(page1TopSalesCount<=3 && page2TopSalesCount<=3 && page3TopSalesCount <=3);  // not more 3 per page
+        Assert.assertTrue(page1TopSalesCount<=3 && page2TopSalesCount<=3 && page3TopSalesCount <=3);  // not more 3 per page
+
 
 
 

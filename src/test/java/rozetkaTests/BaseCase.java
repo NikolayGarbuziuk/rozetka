@@ -1,6 +1,5 @@
 package rozetkaTests;
 
-import org.apache.log4j.BasicConfigurator;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +20,7 @@ public class BaseCase {
 
     @Before
     public void setUp() {
-        System.setProperty("org.apache.commons.logging.Log",
-                "org.apache.commons.logging.impl.Jdk14Logger");
-       // BasicConfigurator.configure();
 
-        // if (driver == null)
-        //    driver = new FirefoxDriver();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
