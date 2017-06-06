@@ -18,7 +18,7 @@ public class Log {
 
     public static void startTestCase(String sTestCaseName) {
         Log.info("----------------------------------------------------------------------------------------");
-        Log.info("$$$$$$$$$$$$$$$$$$$$$              " + sTestCaseName + "       $$$$$$$$$$$$$$$$$$$$$$$$$");
+        Log.info("$$$$$$$$$$$$$$$$$$$$$   START     " + sTestCaseName + "       $$$$$$$$$$$$$$$$$$$$$$$$$");
         Log.info("----------------------------------------------------------------------------------------");
     }
     public static void endTestCase() {

@@ -36,17 +36,17 @@ public class TaskTest extends BaseCase {
         page.searchForTopSells();                                                          // top sells from 1st page
 
         int page1TopSalesCount = page.countOfTopSalesPerPage();
-       // System.out.println("Page1: " + page1TopSalesCount);  // for debug
+       Log.info("Page1: " + page1TopSalesCount);
 
         ResultPage page2 = page.goToPage(2);
         page2.searchForTopSells();                                                         // top sells from 2nd page
         int page2TopSalesCount = page2.countOfTopSalesPerPage();
-       // System.out.println("Page2: " + page2TopSalesCount); // for debug
+       Log.info("Page2: " + page2TopSalesCount);
 
         ResultPage page3 = page2.goToPage(3);                                              // top sells from 3d page
         page3.searchForTopSells();
         int page3TopSalesCount = page3.countOfTopSalesPerPage();
-       // System.out.println("Page3: " + page3TopSalesCount); for debug
+       Log.info("Page3: " + page3TopSalesCount);
 
         Assert.assertTrue(page1TopSalesCount<=3 && page2TopSalesCount<=3 && page3TopSalesCount <=3);  // not more 3 per page
 
