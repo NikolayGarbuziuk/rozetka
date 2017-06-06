@@ -24,6 +24,7 @@ public class BaseCase {
         // if (driver == null)
         //    driver = new FirefoxDriver();
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://rozetka.com.ua");
     }
