@@ -2,22 +2,15 @@ package rozetkaTests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.Verifier;
 import uaComRozetkaTests.pages.HomePage;
 import uaComRozetkaTests.pages.ResultPage;
 import utility.Log;
-
 
 
 /**
  * Created by ПК on 05.06.2017.
  */
 public class TaskTest extends BaseCase {
-
-
-
-
-
 
     @Test
     public void topProdazh3PerPage() throws Exception {
@@ -33,28 +26,26 @@ public class TaskTest extends BaseCase {
                 .subMenuItemClick("Телефоны")                                              // go to Phones
                 .subMenuItemClick("Смартфоны");                                            // go to SmartPhones
 
-        page.searchForTopSells();                                                          // top sells from 1st page
+        // top sells from 1st page
 
-        int page1TopSalesCount = page.countOfTopSalesPerPage();
-       Log.info("Page1: " + page1TopSalesCount);
+        int page1TopSalesCount = page.searchForTopSells().size();
+        Log.info("Page1: " + page1TopSalesCount);
 
-        ResultPage page2 = page.goToPage(2);
-        page2.searchForTopSells();                                                         // top sells from 2nd page
-        int page2TopSalesCount = page2.countOfTopSalesPerPage();
-       Log.info("Page2: " + page2TopSalesCount);
+        // top sells from 2nd page
 
-        ResultPage page3 = page2.goToPage(3);                                              // top sells from 3d page
-        page3.searchForTopSells();
-        int page3TopSalesCount = page3.countOfTopSalesPerPage();
-       Log.info("Page3: " + page3TopSalesCount);
+
+        int page2TopSalesCount = page.goToPage(2).searchForTopSells().size();
+        Log.info("Page2: " + page2TopSalesCount);
+
+        int page3TopSalesCount = page.goToPage(3).searchForTopSells().size();
+        Log.info("Page3: " + page3TopSalesCount);
 
         Assert.assertTrue(page1TopSalesCount<=3 && page2TopSalesCount<=3 && page3TopSalesCount <=3);  // not more 3 per page
-
-
-
 
 
         Log.endTestCase();
 
     }
+
+
 }
